@@ -1,3 +1,10 @@
+alias lm="ls -l | more"
+alias gmend="git commit --amend --no-edit"
+alias gnew="git add . && git commit"
+alias gp="git push origin HEAD"
+alias gpf="git push origin HEAD -f"
+alias gux="grunt uxServer"
+
 alias cuc='clear; cucumber -r features'
 alias jrake='jruby -S rake'
 
@@ -5,7 +12,6 @@ alias svnst="svn st|grep -v '^X'|grep -v '^Performing'|grep -v '^$'"
 alias svnaddall="svn st | grep '^\?' | tr '^\?' ' ' | sed 's/[\\t]*//' | sed 's/[ ]/\\ /g' | xargs svn add"
 alias siw="svn propedit svn:ignore ."
 alias sdm="svn diff|mate"
-
 
 alias gp="git pull;git submodule init -q;git submodule update"
 alias gdc='git diff --cached|mate'
@@ -27,3 +33,16 @@ alias gib="gem install bundler --no-ri --no-rdoc"
 alias redcar=wrapped_redcar
 alias crs="clear; be rspec -c"
 alias crb="clear; ruby"
+
+alias recent='git branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"'
+
+alias brew='HOMEBREW_NO_AUTO_UPDATE=1 brew'
+
+rmain () {
+  git checkout main && git pull && git checkout $1 && git rebase main
+}
+
+gitshowfiles () {
+ git diff-tree --no-commit-id --name-only -r $1
+}
+
