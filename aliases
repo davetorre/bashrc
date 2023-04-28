@@ -39,7 +39,8 @@ alias recent='git branch --sort=-committerdate --format="%(committerdate:relativ
 alias brew='HOMEBREW_NO_AUTO_UPDATE=1 brew'
 
 rmain () {
-  git checkout main && git pull && git checkout $1 && git rebase main
+  mybranch=$(git rev-parse --abref-ref HEAD)
+  git checkout main && git pull && git checkout $mybranch && git rebase main
 }
 
 gitshowfiles () {
